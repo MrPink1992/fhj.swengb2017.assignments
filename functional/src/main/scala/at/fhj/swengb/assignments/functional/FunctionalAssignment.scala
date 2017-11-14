@@ -99,13 +99,12 @@ object FunctionalAssignment {
     * Elements which are equal are considered to be ordered.
     */
   def isSorted[A](as: Array[A], gt: (A, A) => Boolean): Boolean = {
-
-    def iter(i: Int): Boolean = {
-      if (i >= as.length - 1) true
-      else !gt(as(i), as(i + 1)) && iter(i + 1)
-    }
-    iter(0)
-
+      def sort(i: Int): Boolean = {
+        if (i >= as.length -1) return true
+        else if (gt(as(i),as(i+1))) sort(i+1)
+        else return false
+      }
+      sort(0)
   }
 
   /**
@@ -130,10 +129,19 @@ object FunctionalAssignment {
   object MyList {
 
 
-    def sum(list: MyList[Int]): Int = ???
+    def sum(list: MyList[Int]): Int = list match {
+      case MyNil => return 0
+      case Cons(h, t) => h + sum(t)
+
+    }
 
 
-    def product(list: MyList[Int]): Int = ???
+    def product(list: MyList[Int]): Int = list match{
+
+      case MyNil => return 0
+      case Cons(h, t) => h * product(t)
+
+    }
 
     def apply[A](as: A*): MyList[A] = {
       if (as.isEmpty) MyNil
