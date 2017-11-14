@@ -9,12 +9,12 @@ object FunctionalAssignment {
   /**
     * A function which returns its parameters in a changed order. Look at the type signature.
     */
-  def flip[A, B](t: (A, B)): (B, A) = ???
+  def flip[A, B](t: (A, B)): (B, A) = t.swap
 
   /**
     * given a Seq[A] and a function f : A => B, return a Seq[B]
     */
-  def unknown[A, B](as: Seq[A], fn: A => B): Seq[B] = ???
+  def unknown[A, B](as: Seq[A], fn: A => B): Seq[B] = as.map(fn)
 
   /**
     * Returns the absolute value of the parameter i.
@@ -22,7 +22,7 @@ object FunctionalAssignment {
     * @param i a value, either with a positive or a negative sign.
     * @return
     */
-  def abs(i: Int): Int = ???
+  def abs(i: Int): Int = { if (i > 0)  i else i * (-1) }
 
 
   // Describe with your own words what this function does.
@@ -34,12 +34,12 @@ object FunctionalAssignment {
   //
   /**
     *
-    * @param as
-    * @param b
-    * @param fn
-    * @tparam A
-    * @tparam B
-    * @return
+    * @param as is a Sequence
+    * @param b is the accumulator
+    * @param fn is a function
+    * @tparam A is a value of the sequence
+    * @tparam B is the result of the function
+    * @return the function is recursively called with the accumulator and the first value of the sequence until the sequence is empty.
     */
   def op[A, B](as: Seq[A], b: B)(fn: (B, A) => B): B = as.foldLeft(b)(fn)
 
@@ -50,7 +50,11 @@ object FunctionalAssignment {
     * @param numbers
     * @return
     */
-  def sum(numbers: Seq[Int]): Int = ???
+  def sum(numbers: Seq[Int]): Int = {
+
+    op(numbers, 0)(_+_)
+
+  }
 
 
   /**
@@ -63,7 +67,11 @@ object FunctionalAssignment {
     * @param i parameter for which the factorial must be calculated
     * @return i!
     */
-  def fact(i: Int): Int = ???
+  def fact(i: Int): Int = if (i == 0)  1 else i * fact(i-1)
+
+
+
+
 
   /**
     * compute the n'th fibonacci number
@@ -73,7 +81,15 @@ object FunctionalAssignment {
     *
     * https://en.wikipedia.org/wiki/Fibonacci_number
     */
-  def fib(n: Int): Int = ???
+  def fib(n: Int): Int = {
+    def fibRec( n: Int, a:Int, b:Int): Int = n match {
+      case 0 => a
+      case _ => fibRec( n-1, b, a+b )
+    }
+    fibRec( n, 0, 1)
+  }
+
+
 
   /**
     * Implement a isSorted which checks whether an Array[A] is sorted according to a
@@ -82,7 +98,15 @@ object FunctionalAssignment {
     * Implementation hint: you always have to compare two consecutive elements of the array.
     * Elements which are equal are considered to be ordered.
     */
-  def isSorted[A](as: Array[A], gt: (A, A) => Boolean): Boolean = ???
+  def isSorted[A](as: Array[A], gt: (A, A) => Boolean): Boolean = {
+
+    def iter(i: Int): Boolean = {
+      if (i >= as.length - 1) true
+      else !gt(as(i), as(i + 1)) && iter(i + 1)
+    }
+    iter(0)
+
+  }
 
   /**
     * Takes both lists and combines them, element per element.
@@ -90,7 +114,9 @@ object FunctionalAssignment {
     * If one sequence is shorter than the other one, the function stops at the last element
     * of the shorter sequence.
     */
-  def genPairs[A, B](as: Seq[A], bs: Seq[B]): Seq[(A, B)] = ???
+  def genPairs[A, B](as: Seq[A], bs: Seq[B]): Seq[(A, B)] = as.zip(bs)
+
+  }
 
   // a simple definition of a linked list, we define our own list data structure
   sealed trait MyList[+A]
@@ -103,7 +129,9 @@ object FunctionalAssignment {
   // it also provides a convenience constructor in order to instantiate a MyList without hassle
   object MyList {
 
-    def sum[Int](list: MyList[Int]): Int = ???
+    def sum(list: MyList[Int]): Int = {
+
+    }
 
     def product[Int](list: MyList[Int]): Int = ???
 
@@ -114,7 +142,8 @@ object FunctionalAssignment {
       }
     }
 
-  }
+
+
 
 }
 
