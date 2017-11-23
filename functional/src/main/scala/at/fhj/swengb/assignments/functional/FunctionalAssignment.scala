@@ -32,6 +32,8 @@ object FunctionalAssignment {
   // Afterwards, compare your new naming scheme with the original one.
   // What did you gain with your new names? What did you loose?
   //
+  // The function takes a sequence and a start parameter which holds the initial value and applies
+  // a function on every intermediate result so that the last result will be of the same type.
   /**
     *
     * @param as
