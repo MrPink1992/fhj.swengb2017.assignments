@@ -36,13 +36,15 @@ object FunctionalAssignment {
   // a function on every intermediate result so that the last result will be of the same type.
   /**
     *
-    * @param as
-    * @param b
-    * @param fn
-    * @tparam A
-    * @tparam B
+    * @param as  == seq
+    * @param b  == car
+    * @param fn == fun
+    * @tparam A == t1
+    * @tparam B == t2
     * @return
     */
+  //def op[t1, t2](seq: Seq[t1], car: t2)(fn: (t2, t1) => t2): t2 = seq.foldLeft(car)(fun)
+
   def op[A, B](as: Seq[A], b: B)(fn: (B, A) => B): B = as.foldLeft(b)(fn)
 
   /**
