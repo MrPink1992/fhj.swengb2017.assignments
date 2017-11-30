@@ -66,7 +66,21 @@ object Graph {
               treeDepth: Int,
               factor: Double = 0.75,
               angle: Double = 45.0,
-              colorMap: Map[Int, Color] = Graph.colorMap): Tree[L2D] = ???
+              colorMap: Map[Int, Color] = Graph.colorMap): Tree[L2D] = {
+
+    require(treeDepth >= 0 && treeDepth <= (colorMap.size - 1))
+
+
+    def constructGraph(start: L2D, acc: Int): Tree[L2D] = acc match {
+      case nothing if treeDepth == 0    => Node(start)
+      case node    if treeDepth == acc  => Branch(Node(start), Branch(Node(start.left(factor, angle, colorMap(acc - 1))), Node(start.right(factor, angle, colorMap(acc - 1)))))
+      case _                            => Branch(Node(start), Branch(constructGraph(start.left(factor, angle, colorMap(acc - 1)), acc + 1), constructGraph(start.right(factor, angle, colorMap(acc - 1)), acc + 1)))
+    }
+
+    constructGraph(L2D(start,initialAngle,length,colorMap(0)),1)
+
+
+  }
 
 }
 
