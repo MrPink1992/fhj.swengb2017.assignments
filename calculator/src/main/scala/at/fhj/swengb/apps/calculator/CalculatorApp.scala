@@ -53,4 +53,10 @@ class CalculatorFxController extends Initializable {
   def sgn() : Unit = {
     println("an event has happened")
   }
+
+  def minus() : Unit = {
+    println("This is minus")
+  }
+
+
 }
