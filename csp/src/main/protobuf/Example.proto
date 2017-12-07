@@ -6,6 +6,6 @@ package at.fhj.swengb.protobuf;
 option java_package         = "at.fhj.swengb.protobuf";
 
 message Helloworld {
-    string hello = 1;
+    string helo = 1;
     int32 test = 2;
 }
