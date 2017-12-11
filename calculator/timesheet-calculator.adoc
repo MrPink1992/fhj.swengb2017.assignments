@@ -24,11 +24,17 @@
 | 2
 | fixed bugs
 
+| 2.12.17
+| 3
+| GUI
 
+| 3.12.17
+| 2
+| GUI
 
 | 9.12.17
 | 2
-| easy task, making gui for calculator assignment, calculator.fxml, AnchorPane instead of GridPane
+| RPNSpec
 
 | 10.12.17
 | 12
@@ -36,8 +42,7 @@
 
 | 11.12.17
 | 1
-| upload Timespec and adoc file configurated last wps of the lab5, listening to music
-
+| upload Timespec and adoc file configurated last wps of the lab5
 
 
 |===
