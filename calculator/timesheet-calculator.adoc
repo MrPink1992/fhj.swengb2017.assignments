@@ -1,11 +1,16 @@
+---Calculator Project DONE WITH THOMAS RINNHOFER
+
 == Time expenditure: Calculator assignment
 
 [cols="1,1,34", options="header"]
 .Time expenditure
+
 |===
 | Date
 | Hours
 | Description
+
+
 
 | 29.11.17
 | 1
@@ -19,6 +24,8 @@
 | 2
 | fixed bugs
 
+
+
 | 9.12.17
 | 2
 | easy task, making gui for calculator assignment, calculator.fxml, AnchorPane instead of GridPane
@@ -30,6 +37,7 @@
 | 11.12.17
 | 1
 | upload Timespec and adoc file configurated last wps of the lab5, listening to music
+
 
 
 |===
