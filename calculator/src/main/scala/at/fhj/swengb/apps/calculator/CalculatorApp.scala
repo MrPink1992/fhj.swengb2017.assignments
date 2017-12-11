@@ -4,8 +4,9 @@ import java.net.URL
 import java.util.ResourceBundle
 import javafx.application.Application
 import javafx.beans.property.{ObjectProperty, SimpleObjectProperty}
+import javafx.event.ActionEvent
 import javafx.fxml.{FXML, FXMLLoader, Initializable}
-import javafx.scene.control.TextField
+import javafx.scene.control.{Button, Label, TextField}
 import javafx.scene.{Parent, Scene}
 import javafx.stage.Stage
 
@@ -35,6 +36,7 @@ class CalculatorFX extends javafx.application.Application {
       stage.show()
       stage.setMinWidth(stage.getWidth)
       stage.setMinHeight(stage.getHeight)
+      stage.setResizable(false)
     } catch {
       case NonFatal(e) => e.printStackTrace()
     }
@@ -69,6 +71,5 @@ class CalculatorFxController extends Initializable {
     }
     getCalculator().stack foreach println
   }
-
 
 }

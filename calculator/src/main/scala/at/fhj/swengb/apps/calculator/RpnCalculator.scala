@@ -1,9 +1,5 @@
 package at.fhj.swengb.apps.calculator
 
-import java.util.NoSuchElementException
-
-import at.fhj.swengb.apps.calculator
-
 import scala.util.Try
 
 /**
@@ -18,8 +14,26 @@ object RpnCalculator {
     * @param s a string representing a calculation, for example '1 2 +'
     * @return
     */
-  def apply(s: String): Try[RpnCalculator] =  s match {
 
+  def apply(s: String): Try[RpnCalculator] = {
+    if (s.isEmpty)
+      Try(RpnCalculator())
+    else {
+      try{
+        val myStack: List[Op] = s.split(' ').map(e => Op(e)).toList
+        myStack.foldLeft(Try(RpnCalculator()))(
+          (acc, elem) => acc.get.push(elem))
+      }
+      catch {
+      case e: Exception => Try[RpnCalculator](throw e)
+      }
+    }
+  }
+
+
+}
+
+/*
     case "" => Try(RpnCalculator())
     case _ => try {
 
@@ -30,13 +44,12 @@ object RpnCalculator {
       case e: Exception => Try[RpnCalculator](throw e)
     }
   }
+*/
 
 
 
 
 
-
-}
 
 /**
   * Reverse Polish Notation Calculator.
@@ -113,7 +126,12 @@ case class RpnCalculator(stack: List[Op] = Nil) {
     *
     * @return
     */
-  def peek(): Op = if (stack.nonEmpty) stack.head else throw new NoSuchElementException
+  def peek(): Op = {
+    if (stack.nonEmpty)
+      stack.head
+    else
+      throw new NoSuchElementException
+  }
 
   /**
     * returns the size of the stack.
