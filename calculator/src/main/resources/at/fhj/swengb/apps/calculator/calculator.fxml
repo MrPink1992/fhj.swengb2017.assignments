@@ -6,57 +6,66 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="422.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="422.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhj.swengb.apps.calculator.CalculatorFxController">
     <children>
-        <HBox layoutX="42.0" layoutY="250.0" prefHeight="80.0" prefWidth="338.0" spacing="12.0" style="-fx-background-color: black;">
+        <HBox layoutX="43.0" layoutY="343.0" prefHeight="80.0" prefWidth="338.0" spacing="12.0" style="-fx-background-color: black;">
             <children>
-                <Button mnemonicParsing="false" prefHeight="101.0" prefWidth="108.0" text="4" />
-                <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="108.0" text="5" onAction="#clickBt1"/>
-                <Button layoutX="118.0" layoutY="10.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="108.0" text="6" />
-                <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="108.0" style="-fx-background-color: orange;" text="÷">
+                <Button mnemonicParsing="false" onAction="#btn4Clk" prefHeight="101.0" prefWidth="108.0" text="4" />
+                <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btn5Clk" prefHeight="101.0" prefWidth="108.0" text="5" />
+                <Button layoutX="118.0" layoutY="10.0" mnemonicParsing="false" onAction="#btn6Clk" prefHeight="101.0" prefWidth="108.0" text="6" />
+                <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnDivClk" prefHeight="101.0" prefWidth="108.0" style="-fx-background-color: orange;" text="/">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
             </children>
         </HBox>
-        <HBox layoutX="42.0" layoutY="341.0" prefHeight="80.0" prefWidth="338.0" spacing="12.0" style="-fx-background-color: black;">
+        <HBox layoutX="43.0" layoutY="434.0" prefHeight="80.0" prefWidth="338.0" spacing="12.0" style="-fx-background-color: black;">
             <children>
-                <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="108.0" text="1" />
-                <Button layoutX="118.0" layoutY="10.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="108.0" text="2" />
-                <Button layoutX="226.0" layoutY="10.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="108.0" text="3" />
-                <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="108.0" style="-fx-background-color: orange;" text="-">
+                <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btn1Clk" prefHeight="101.0" prefWidth="108.0" text="1" />
+                <Button layoutX="118.0" layoutY="10.0" mnemonicParsing="false" onAction="#btn2Clk" prefHeight="101.0" prefWidth="108.0" text="2" />
+                <Button layoutX="226.0" layoutY="10.0" mnemonicParsing="false" onAction="#btn3Clk" prefHeight="101.0" prefWidth="108.0" text="3" />
+                <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnMinClk" prefHeight="101.0" prefWidth="108.0" style="-fx-background-color: orange;" text="-">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
             </children>
         </HBox>
-        <HBox layoutX="42.0" layoutY="432.0" prefHeight="80.0" prefWidth="338.0" spacing="12.0" style="-fx-background-color: black;">
+        <HBox layoutX="43.0" layoutY="525.0" prefHeight="80.0" prefWidth="338.0" spacing="12.0" style="-fx-background-color: black;">
             <children>
-                <Button mnemonicParsing="false" prefHeight="101.0" prefWidth="108.0" text="0" />
-                <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="108.0" text="." />
-                <Button layoutX="118.0" layoutY="10.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="108.0" text="=" />
-                <Button layoutX="226.0" layoutY="10.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="108.0" style="-fx-background-color: orange;" text="+">
+                <Button mnemonicParsing="false" onAction="#btn0Clk" prefHeight="101.0" prefWidth="108.0" text="0" />
+                <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnPtnClk" prefHeight="101.0" prefWidth="108.0" text="." />
+                <Button layoutX="118.0" layoutY="10.0" mnemonicParsing="false" onAction="#sgn" prefHeight="101.0" prefWidth="108.0" text="=" />
+                <Button layoutX="226.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnPlsClk" prefHeight="101.0" prefWidth="108.0" style="-fx-background-color: orange;" text="+">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
             </children>
         </HBox>
-        <HBox layoutX="42.0" layoutY="162.0" prefHeight="80.0" prefWidth="338.0" spacing="12.0" style="-fx-background-color: black;">
+        <HBox layoutX="43.0" layoutY="255.0" prefHeight="80.0" prefWidth="338.0" spacing="12.0" style="-fx-background-color: black;">
             <children>
-                <Button mnemonicParsing="false" prefHeight="101.0" prefWidth="108.0" text="7" />
-                <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="108.0" text="8" />
-                <Button layoutX="118.0" layoutY="10.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="108.0" text="9" />
-                <Button layoutX="226.0" layoutY="10.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="108.0" text="x">
+                <Button mnemonicParsing="false" onAction="#btn7Clk" prefHeight="101.0" prefWidth="108.0" text="7" />
+                <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btn8Clk" prefHeight="101.0" prefWidth="108.0" text="8" />
+                <Button layoutX="118.0" layoutY="10.0" mnemonicParsing="false" onAction="#btn9Clk" prefHeight="101.0" prefWidth="108.0" text="9" />
+                <Button layoutX="226.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnMulClk" prefHeight="101.0" prefWidth="108.0" text="*">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
             </children>
         </HBox>
-        <TextField alignment="CENTER_RIGHT" layoutX="39.0" layoutY="30.0" prefHeight="100.0" prefWidth="345.0" style="-fx-skin: ButtonSkin;">
+        <HBox layoutX="43.0" layoutY="165.0" prefHeight="80.0" prefWidth="338.0" spacing="12.0" style="-fx-background-color: black;">
+            <children>
+                <Button layoutX="0.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnCClk" prefHeight="101.0" prefWidth="169.0" text="C" />
+                <Button layoutX="226.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnSgnClk" prefHeight="101.0" prefWidth="169.0" text="+/-">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+            </children></HBox>
+        <TextField fx:id="numberTextField" alignment="CENTER_RIGHT" layoutX="39.0" layoutY="30.0" prefHeight="100.0" prefWidth="345.0">
             <font>
                 <Font size="47.0" />
             </font>
