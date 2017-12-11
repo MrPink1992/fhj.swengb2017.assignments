@@ -42,7 +42,7 @@
 
 | 11.12.17
 | 1
-| upload Timespec and adoc file configurated last wps of the lab5
+| upload Timespec and adoc file last wps of the lab5
 
 
 |===
