@@ -6,11 +6,14 @@ import org.scalatest.WordSpecLike
 import org.scalatest.prop.Checkers
 
 
-class BattleShipProtocolSpec extends WordSpecLike {
+class BattleShipGameProtocolSpec extends WordSpecLike {
 
-  import at.fhj.swengb.apps.battleship.model.BattleshipGameGen._
 
-  "BattleShipProtocol" should {
+  val battleShipGameGen: Gen[BattleShipGame] = for {
+    battleField <- battleFieldGen
+  } yield BattleShipGame(battleField, i => i.toDouble, i => i.toDouble, println)
+
+  "BattleShipGameProtocol" should {
     "be deserializable" in {
       Checkers.check(Prop.forAll(battleShipGameGen) {
         expected: BattleShipGame => {
