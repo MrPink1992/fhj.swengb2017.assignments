@@ -1,16 +1,19 @@
 package at.fhj.swengb.apps.battleship.jfx
 
 import java.net.URL
+import java.nio.file.{Files, Paths}
 import java.util.ResourceBundle
 import javafx.fxml.{FXML, Initializable}
-import javafx.scene.control.TextArea
+import javafx.scene.control.{Slider, TextArea}
 import javafx.scene.layout.GridPane
 
+import at.fhj.swengb.apps.battleship.BattleShipProtocol.convert
+import at.fhj.swengb.apps.battleship.BattleShipProtobuf
 import at.fhj.swengb.apps.battleship.model.{BattleField, BattleShipGame, Fleet, FleetConfig}
-
 
 class BattleShipFxController extends Initializable {
 
+  var battleShipGame: BattleShipGame = _
 
   @FXML private var battleGroundGridPane: GridPane = _
 
@@ -19,8 +22,40 @@ class BattleShipFxController extends Initializable {
     */
   @FXML private var log: TextArea = _
 
-  @FXML
-  def newGame(): Unit = initGame()
+  /**
+    * A Slider to place steps of the game
+    */
+  @FXML private var slider: Slider = _
+
+  @FXML def newGame(): Unit = initGame()
+
+  @FXML def loadGame(): Unit = {
+    val path = Paths.get("target/game.state")
+    val stream = Files.newInputStream(path)
+    val field = convert(BattleShipProtobuf.BattleShipGame.parseFrom(stream))
+    val game = BattleShipGame(field, getCellWidth, getCellHeight, appendLog, slider)
+
+    init(game)
+
+    game.updateSteps(game.battleField.steps.length)
+
+    println("Game loaded")
+  }
+
+  @FXML def saveGame(): Unit = {
+    val game = convert(battleShipGame)
+    val path = Paths.get("target/game.state")
+    val stream = Files.newOutputStream(path)
+
+    game.writeTo(stream)
+    println("Game saved")
+  }
+
+  @FXML def onMouseDragged(): Unit = {
+    init(battleShipGame)
+    battleShipGame.updateSteps(slider.getValue.toInt)
+    println(slider.getValue)
+  }
 
   override def initialize(url: URL, rb: ResourceBundle): Unit = initGame()
 
@@ -40,6 +75,7 @@ class BattleShipFxController extends Initializable {
     *
     */
   def init(game : BattleShipGame) : Unit = {
+    battleShipGame = game
     battleGroundGridPane.getChildren.clear()
     for (c <- game.getCells) {
       battleGroundGridPane.add(c, c.pos.x, c.pos.y)
@@ -59,7 +95,7 @@ class BattleShipFxController extends Initializable {
 
     val battleField: BattleField = BattleField.placeRandomly(field)
 
-    BattleShipGame(battleField, getCellWidth, getCellHeight, appendLog)
+    BattleShipGame(battleField, getCellWidth, getCellHeight, appendLog, slider)
   }
 
 }

@@ -1,12 +1,15 @@
 package at.fhj.swengb.apps.battleship.model
 
+import javafx.scene.control.Slider
+
 /**
   * Contains all information about a battleship game.
   */
 case class BattleShipGame(battleField: BattleField,
                           getCellWidth: Int => Double,
                           getCellHeight: Int => Double,
-                          log: String => Unit) {
+                          log: String => Unit,
+                          slider: Slider) {
 
   /**
     * remembers which vessel was hit at which position
@@ -26,16 +29,27 @@ case class BattleShipGame(battleField: BattleField,
   private val cells: Seq[BattleFxCell] = for {x <- 0 until battleField.width
                                               y <- 0 until battleField.height
                                               pos = BattlePos(x, y)} yield {
-    BattleFxCell(BattlePos(x, y),
+    BattleFxCell(battleField,
+      BattlePos(x, y),
       getCellWidth(x),
       getCellHeight(y),
       log,
       battleField.fleet.findByPos(pos),
-      updateGameState)
+      updateGameState,
+      updateSlider)
   }
 
   def getCells(): Seq[BattleFxCell] = cells
 
+  def updateSteps(takeSteps: Int): Unit = battleField.steps.take(takeSteps).foreach {
+    step => cells(step.x * battleField.width + step.y).getOnMouseClicked.handle(null)
+  }
+
+  def updateSlider(): Unit = {
+    val x = battleField.steps.length
+    slider.setMax(x)
+    slider.setValue(x)
+  }
 
   def updateGameState(vessel: Vessel, pos: BattlePos): Unit = {
     log("Vessel " + vessel.name.value + " was hit at position " + pos)

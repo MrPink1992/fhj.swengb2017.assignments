@@ -67,6 +67,10 @@ case class BattleField(width: Int, height: Int, fleet: Fleet) {
 
   val availablePos: Set[BattlePos] = allPos -- fleet.occupiedPositions
 
+  var steps: List[BattlePos] = List()
+
+  def addStep(pos: BattlePos): Unit = if (!steps.contains(pos)) steps = steps :+ pos
+
   def randomFleet(): Fleet = {
     Fleet(Set[Vessel]())
   }
