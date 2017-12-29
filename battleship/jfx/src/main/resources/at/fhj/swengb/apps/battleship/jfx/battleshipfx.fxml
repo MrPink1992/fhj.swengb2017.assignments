@@ -4,6 +4,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -11,24 +14,34 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="540.0" prefWidth="752.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhj.swengb.apps.battleship.jfx.BattleShipFxController">
+<BorderPane prefHeight="540.0" prefWidth="752.0" style="-fx-background-image: url('http://www.1zoom.net/big2/246/283918-alexfas01.jpg');" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhj.swengb.apps.battleship.jfx.BattleShipFxController">
     <right>
 
 
     </right>
     <top>
-        <Label prefHeight="51.0" prefWidth="128.0" text="Battleship" BorderPane.alignment="CENTER">
+        <Label prefHeight="51.0" prefWidth="128.0" style="-fx-background-color: none;" text="Battleship" BorderPane.alignment="CENTER">
             <font>
                 <Font size="27.0" />
             </font>
+            <effect>
+                <Lighting>
+                    <bumpInput>
+                        <Shadow />
+                    </bumpInput>
+                    <light>
+                        <Light.Distant color="#dd4545" />
+                    </light>
+                </Lighting>
+            </effect>
         </Label>
     </top>
     <right>
         <VBox prefHeight="392.0" prefWidth="138.0" BorderPane.alignment="CENTER">
             <children>
-                <Button id="button" fx:id="button" onAction="#newGame" prefHeight="27.0" prefWidth="142.0" text="New Game" />
-            <Button id="button" fx:id="button1" onAction="#loadGame" prefHeight="27.0" prefWidth="142.0" text="Load Game" />
-            <Button id="button" fx:id="button11" onAction="#saveGame" prefHeight="27.0" prefWidth="142.0" text="Save Game" />
+                <Button id="button" fx:id="button" onAction="#newGame" prefHeight="27.0" prefWidth="142.0" text="New Game" textFill="#5c6f5f" />
+                <Button id="button" fx:id="button1" onAction="#loadGame" prefHeight="27.0" prefWidth="142.0" text="Load Game" textFill="#ab9203" />
+                <Button id="button" fx:id="button11" onAction="#saveGame" prefHeight="27.0" prefWidth="142.0" text="Save Game" />
             </children>
         </VBox>
     </right>
@@ -47,8 +60,8 @@
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="NEVER" />
-                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="NEVER" />
+                <RowConstraints maxHeight="30.0" minHeight="28.5" prefHeight="28.5" vgrow="NEVER" />
+                <RowConstraints maxHeight="31.5" minHeight="30.0" prefHeight="31.5" vgrow="NEVER" />
                 <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="NEVER" />
                 <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="NEVER" />
                 <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="NEVER" />
@@ -60,10 +73,10 @@
             </rowConstraints>
         </GridPane>
     </center>
-   <left>
+    <left>
         <TextArea fx:id="log" prefHeight="489.0" prefWidth="128.0" BorderPane.alignment="CENTER" />
-   </left>
-   <bottom>
-      <Slider fx:id="slider" onMouseDragged="#onMouseDragged" prefHeight="69.0" prefWidth="752.0" max="1.0" value="1.0" BorderPane.alignment="CENTER" />
-   </bottom>
+    </left>
+    <bottom>
+        <Slider fx:id="slider" max="1.0" onMouseDragged="#onMouseDragged" prefHeight="69.0" prefWidth="752.0" value="1.0" BorderPane.alignment="CENTER" />
+    </bottom>
 </BorderPane>
