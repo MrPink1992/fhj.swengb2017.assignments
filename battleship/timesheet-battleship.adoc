@@ -46,6 +46,12 @@
 | 1
 | refining css, make it look beautiful
 
+|Arneitzj15
+|01.01.2018
+|4
+|3
+|implemented media player, starting with application, setCycleCount, beautiful guitar music
+
 
 
 |===
