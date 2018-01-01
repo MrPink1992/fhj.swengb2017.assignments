@@ -52,6 +52,12 @@
 |3
 |implemented media player, starting with application, setCycleCount, beautiful guitar music
 
+|Arneitzj15
+|01.01.2018
+|2
+|1
+|implementing alert Box to start before game. "Are you ready?"
+
 
 
 |===

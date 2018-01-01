@@ -20,18 +20,30 @@ object BattleShipFxApp {
 
 class BattleShipFxApp extends Application {
 
+  /*doing the media player, mp3 in folder*/
+
   val triedRoot = Try(FXMLLoader.load[Parent](getClass.getResource("/at/fhj/swengb/apps/battleship/jfx/battleshipfx.fxml")))
+
+
+
+
   val media = new Media("file:///C:/workspace/fhj.swengb2017.assignments/battleship/jfx/src/main/resources/at/fhj/swengb/apps/battleship/jfx/Dead_Combo_-_01_-_Povo_Que_Cas_Descalo.mp3")
   val mediaPlayer = new MediaPlayer(media)
   mediaPlayer.setCycleCount(7)
-  mediaPlayer.play()
+
+
+  AlertBox.display("Battleship","Bist du bereit für den ultimativen Kampf?");
+
+
+  /* doing media player done*/
 
   override def start(stage: Stage) = {
     triedRoot match {
       case Success(root) =>
         stage.setScene(new Scene(root))
         stage.show()
-        stage.setTitle("Es wird Zeit!")
+        stage.setTitle("Es wird Zeit!")               //setting title of window to some meaningful message!. //
+        mediaPlayer.play()
       case Failure(e) => e.printStackTrace()
     }
   }
