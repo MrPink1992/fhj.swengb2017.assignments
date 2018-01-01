@@ -24,24 +24,24 @@
             <font>
                 <Font size="27.0" />
             </font>
-            <effect>
-                <Lighting>
-                    <bumpInput>
-                        <Shadow />
-                    </bumpInput>
-                    <light>
-                        <Light.Distant color="#dd4545" />
-                    </light>
-                </Lighting>
-            </effect>
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant color="#dd4545" />
+               </light>
+            </Lighting>
+         </effect>
         </Label>
     </top>
     <right>
         <VBox prefHeight="392.0" prefWidth="138.0" BorderPane.alignment="CENTER">
             <children>
                 <Button id="button" fx:id="button" onAction="#newGame" prefHeight="27.0" prefWidth="142.0" text="New Game" textFill="#5c6f5f" />
-                <Button id="button" fx:id="button1" onAction="#loadGame" prefHeight="27.0" prefWidth="142.0" text="Load Game" textFill="#ab9203" />
-                <Button id="button" fx:id="button11" onAction="#saveGame" prefHeight="27.0" prefWidth="142.0" text="Save Game" />
+            <Button id="button" fx:id="button1" onAction="#loadGame" prefHeight="27.0" prefWidth="142.0" text="Load Game" textFill="#ab9203" />
+            <Button id="button" fx:id="button11" onAction="#saveGame" prefHeight="27.0" prefWidth="142.0" text="Save Game" />
             </children>
         </VBox>
     </right>
@@ -73,10 +73,10 @@
             </rowConstraints>
         </GridPane>
     </center>
-    <left>
+   <left>
         <TextArea fx:id="log" prefHeight="489.0" prefWidth="128.0" BorderPane.alignment="CENTER" />
-    </left>
-    <bottom>
-        <Slider fx:id="slider" max="1.0" onMouseDragged="#onMouseDragged" prefHeight="69.0" prefWidth="752.0" value="1.0" BorderPane.alignment="CENTER" />
-    </bottom>
+   </left>
+   <bottom>
+      <Slider fx:id="slider" max="1.0" onMouseDragged="#onMouseDragged" prefHeight="69.0" prefWidth="752.0" value="1.0" BorderPane.alignment="CENTER" />
+   </bottom>
 </BorderPane>
