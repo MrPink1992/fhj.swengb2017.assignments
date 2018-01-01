@@ -25,7 +25,7 @@ public class AlertBox {
 
     public static void sploosh() {
 
-        Media sploosh = new Media("file:///C:/workspace/fhj.swengb2017.assignments/battleship/jfx/src/main/resources/at/fhj/swengb/apps/battleship/jfx/Cannon+2.mp3");
+        Media sploosh = new Media("file:///C:/workspace/fhj.swengb2017.assignments/battleship/jfx/src/main/resources/at/fhj/swengb/apps/battleship/jfx/short_heavy_splash.mp3");
         MediaPlayer splooshie = new MediaPlayer(sploosh);
         splooshie.play();
 

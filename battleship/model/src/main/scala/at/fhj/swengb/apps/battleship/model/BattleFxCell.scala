@@ -2,6 +2,7 @@ package at.fhj.swengb.apps.battleship.model
 
 import javafx.scene.paint.Color
 import javafx.scene.shape.Rectangle
+import at.fhj.swengb.apps.battleship.AlertBox;
 ;
 
 /**
@@ -32,6 +33,7 @@ case class BattleFxCell(battleField: BattleField
       someVessel match {
         case None =>
           log(s"Missed. Just hit water.")
+          AlertBox.sploosh();
           setFill(Color.AQUAMARINE)
         case Some(v) =>
           // log(s"Hit an enemy vessel!")
