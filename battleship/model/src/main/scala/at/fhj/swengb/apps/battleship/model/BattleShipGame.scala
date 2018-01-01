@@ -1,6 +1,7 @@
 package at.fhj.swengb.apps.battleship.model
 
 import javafx.scene.control.Slider;
+import at.fhj.swengb.apps.battleship.AlertBox;
 
 
 
@@ -55,6 +56,7 @@ import javafx.scene.control.Slider;
     }
 
     def updateGameState(vessel: Vessel, pos: BattlePos): Unit = {
+      AlertBox.shoot()
       log("Vessel " + vessel.name.value + " was hit at position " + pos)
 
       if (hits.contains(vessel)) {
@@ -82,6 +84,7 @@ import javafx.scene.control.Slider;
 
         if (vessel.occupiedPos == hits(vessel)) {
           log(s"Ship ${vessel.name.value} was destroyed.")
+          AlertBox.explode()
           sunkShips = sunkShips + vessel
 
           if (battleField.fleet.vessels == sunkShips) {

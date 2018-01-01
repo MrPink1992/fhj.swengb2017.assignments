@@ -7,6 +7,8 @@ import javafx.stage.Stage
 import javafx.scene.media.Media
 import javafx.scene.media.MediaPlayer
 
+import at.fhj.swengb.apps.battleship.AlertBox
+
 import scala.util.{Failure, Success, Try}
 
 object BattleShipFxApp {

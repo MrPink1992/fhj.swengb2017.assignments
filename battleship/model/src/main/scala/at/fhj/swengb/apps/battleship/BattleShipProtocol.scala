@@ -3,6 +3,7 @@ package at.fhj.swengb.apps.battleship
 import scala.collection.JavaConverters._
 import at.fhj.swengb.apps.battleship.model._
 
+
 object BattleShipProtocol {
 
   def convert(g: BattleShipGame): BattleShipProtobuf.BattleShipGame = {
