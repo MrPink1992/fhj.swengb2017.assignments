@@ -65,6 +65,10 @@ public class AlertBox {
         closeButton.setOnAction(e -> window.close());
 
 
+
+
+
+
         VBox layout = new VBox(10);
         layout.setId("pane");
         layout.getChildren().addAll(label,closeButton);

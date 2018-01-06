@@ -3,15 +3,24 @@ package at.fhj.swengb.apps.battleship.jfx
 import java.net.URL
 import java.nio.file.{Files, Paths}
 import java.util.ResourceBundle
-import javafx.fxml.{FXML, Initializable}
+import javafx.fxml.{FXML, FXMLLoader, Initializable}
+import javafx.scene.{Parent, Scene}
 import javafx.scene.control.{Slider, TextArea}
 import javafx.scene.layout.GridPane
+import javafx.stage.Stage
 
 import at.fhj.swengb.apps.battleship.BattleShipProtocol.convert
 import at.fhj.swengb.apps.battleship.BattleShipProtobuf
 import at.fhj.swengb.apps.battleship.model.{BattleField, BattleShipGame, Fleet, FleetConfig}
 
+import scala.util.{Failure, Success, Try}
+
 class BattleShipFxController extends Initializable {
+
+
+
+
+
 
   var battleShipGame: BattleShipGame = _
 
