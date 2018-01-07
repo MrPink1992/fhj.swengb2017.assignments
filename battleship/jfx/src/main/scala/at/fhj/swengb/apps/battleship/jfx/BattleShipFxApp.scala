@@ -10,6 +10,7 @@ import javafx.scene.media.MediaPlayer
 
 import at.fhj.swengb.apps.battleship.AlertBox
 
+import scala.compat.Platform
 import scala.util.{Failure, Success, Try}
 
 object BattleShipFxApp {
@@ -25,22 +26,11 @@ class BattleShipFxApp extends Application {
 
   /*doing the media player, mp3 in folder*/
 
-  val triedRoot = Try(FXMLLoader.load[Parent](getClass.getResource("/at/fhj/swengb/apps/battleship/jfx/battleshipfx.fxml")))
+  val triedRoot = Try(FXMLLoader.load[Parent](getClass.getResource("/at/fhj/swengb/apps/battleship/jfx/startupScreen.fxml")))
 
-  import javafx.animation.FadeTransition
-  import javafx.scene.paint.Color
-  import javafx.util.Duration
 
-  val rect = new Nothing(100, 40, 100, 100)
-  (50)
-  rect.setArcWidth(50)
-  rect.setFill(Color.VIOLET)
 
-  val ft = new FadeTransition(Duration.millis(3000), rect)
-  ft.setFromValue(1.0)
-  ft.setToValue(0.3)
-  ft.setCycleCount(4)
-  ft.setAutoReverse(true)
+
 
 
 

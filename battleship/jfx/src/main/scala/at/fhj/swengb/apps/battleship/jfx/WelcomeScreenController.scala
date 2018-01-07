@@ -41,6 +41,8 @@ class WelcomeScreenController extends Initializable{
 
   @FXML def loadnewscene : Unit = {
 
+   
+
     println("Fuck off, hardcore! ")
 
 
