@@ -20,7 +20,7 @@
     <right>
     </right>
     <top>
-        <Label prefHeight="51.0" prefWidth="128.0" style="-fx-background-color: none;" text="Battleship" BorderPane.alignment="CENTER">
+        <Label fx:id = "label" prefHeight="51.0" prefWidth="128.0" stylesheets = "button.css" style="-fx-background-color: none;" text="Battleship" BorderPane.alignment="CENTER">
             <font>
                 <Font size="27.0" />
             </font>
@@ -83,7 +83,7 @@
          </BorderPane.margin></TextArea>
    </left>
    <bottom>
-      <Slider fx:id="slider" max="1.0" onMouseDragged="#onMouseDragged" prefHeight="69.0" prefWidth="752.0" value="1.0" BorderPane.alignment="CENTER" />
+      <Slider fx:id="slider" showTickLabels="true" max="100.0" onMouseDragged="#onMouseDragged" prefHeight="69.0" prefWidth="752.0" value="0.0" BorderPane.alignment="CENTER" />
    </bottom>
    <opaqueInsets>
       <Insets />

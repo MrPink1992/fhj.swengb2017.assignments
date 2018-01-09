@@ -3,12 +3,31 @@
 
 #background1 {
 
+
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: stretch;
     -fx-border-color: black;
     -fx-background-image: url('https://vignette.wikia.nocookie.net/gameofthronesfanon/images/6/62/Silver_Fleet.jpg/revision/latest?cb=20160516211349')
 
+
+
+}
+
+#label {
+
+    -fx-text-fill: white;
+
+
+
+}
+
+#slider {
+
+    -fx-cursor: hand;
+    -fx-fill: #7ebcea;
+    -fx-progress-color: red;
+    -fx-stroke: black;
 
 
 }
@@ -45,8 +64,10 @@ background {
     -fx-background-image:url('startuppicture.jpg');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
-    -fx-background-size: stretch;
+    -fx-background-size: cover;
     -fx-border-color: black;
+
+
 
 }
 

@@ -1,7 +1,11 @@
 package at.fhj.swengb.apps.battleship.model
 
-import javafx.scene.control.Slider;
-import at.fhj.swengb.apps.battleship.AlertBox;
+import javafx.geometry.Orientation
+import javafx.scene.control.Slider
+import javafx.scene.input.MouseEvent
+
+import at.fhj.swengb.apps.battleship.AlertBox
+import com.sun.glass.ui.View.EventHandler;
 
 
 
@@ -50,9 +54,11 @@ import at.fhj.swengb.apps.battleship.AlertBox;
     }
 
     def updateSlider(): Unit = {
+
       val x = battleField.steps.length
-      slider.setMax(x)
       slider.setValue(x)
+
+
     }
 
     def updateGameState(vessel: Vessel, pos: BattlePos): Unit = {

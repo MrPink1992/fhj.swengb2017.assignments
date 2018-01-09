@@ -57,7 +57,8 @@ class BattleShipFxApp extends Application {
       case Success(root) =>
         stage.setScene(new Scene(root))
         stage.show()
-        stage.setTitle("Es wird Zeit!")   //setting title of window to some meaningful message!. //
+        stage.setTitle("Es wird Zeit!")
+        stage.setResizable(false)//setting title of window to some meaningful message!. //
         mediaPlayer.play()
       case Failure(e) => e.printStackTrace()
     }
