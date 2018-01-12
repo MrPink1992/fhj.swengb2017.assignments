@@ -1,5 +1,4 @@
 == Time expenditure: battleship assignment
-*in cooperation with team Rinnhofer, Wallner*
 
 [cols="1,1,1, 1,4", options="header"]
 .Time expenditure
