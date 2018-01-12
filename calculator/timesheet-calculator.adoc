@@ -1,48 +1,25 @@
----Calculator Project DONE WITH THOMAS RINNHOFER
-
 == Time expenditure: Calculator assignment
 
-[cols="1,1,34", options="header"]
+[cols="1,1,4", options="header"]
 .Time expenditure
-
 |===
 | Date
 | Hours
 | Description
 
-
-
-| 29.11.17
-| 1
-| Review of this and that
-
-| 30.11.17
+| 08.10.2017
 | 5
-| implemented css
+| implemented missing functions in RpnCalculator.scala
 
-| 11.07.17
+| 9.12.2017
 | 2
-| fixed bugs
+| implemented missing code in RpnOperations.scala
 
-| 2.12.17
+| 10.12.2017
+| 4
+| Design of User Interface
+
+| 11.12.2017
 | 3
-| GUI
-
-| 3.12.17
-| 2
-| GUI
-
-| 9.12.17
-| 2
-| RPNSpec
-
-| 10.12.17
-| 12
-| working on Calculator Assignment, implementing RPN Tests, hard as fuaaark
-
-| 11.12.17
-| 1
-| upload Timespec and adoc file last wps of the lab5
-
-
+| some fixes and update to timesheet
 |===

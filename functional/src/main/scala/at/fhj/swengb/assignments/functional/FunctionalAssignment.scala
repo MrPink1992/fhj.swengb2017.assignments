@@ -9,7 +9,7 @@ object FunctionalAssignment {
   /**
     * A function which returns its parameters in a changed order. Look at the type signature.
     */
-  def flip[A, B](t: (A, B)): (B, A) = (t._2,t._1)
+  def flip[A, B](t: (A, B)): (B, A) = t.swap
 
   /**
     * given a Seq[A] and a function f : A => B, return a Seq[B]
@@ -22,7 +22,7 @@ object FunctionalAssignment {
     * @param i a value, either with a positive or a negative sign.
     * @return
     */
-  def abs(i: Int): Int = if (i<0) (-i) else return i
+  def abs(i: Int): Int = { if (i > 0)  i else i * (-1) }
 
 
   // Describe with your own words what this function does.
@@ -32,19 +32,15 @@ object FunctionalAssignment {
   // Afterwards, compare your new naming scheme with the original one.
   // What did you gain with your new names? What did you loose?
   //
-  // The function takes a sequence and a start parameter which holds the initial value and applies
-  // a function on every intermediate result so that the last result will be of the same type.
   /**
     *
-    * @param as  == seq
-    * @param b  == car
-    * @param fn == fun
-    * @tparam A == t1
-    * @tparam B == t2
-    * @return
+    * @param as is a Sequence
+    * @param b is the accumulator
+    * @param fn is a function
+    * @tparam A is a value of the sequence
+    * @tparam B is the result of the function
+    * @return the function is recursively called with the accumulator and the first value of the sequence until the sequence is empty.
     */
-  //def op[t1, t2](seq: Seq[t1], car: t2)(fn: (t2, t1) => t2): t2 = seq.foldLeft(car)(fun)
-
   def op[A, B](as: Seq[A], b: B)(fn: (B, A) => B): B = as.foldLeft(b)(fn)
 
   /**
@@ -54,7 +50,11 @@ object FunctionalAssignment {
     * @param numbers
     * @return
     */
-  def sum(numbers: Seq[Int]): Int = op(numbers, 0) (_+_)
+  def sum(numbers: Seq[Int]): Int = {
+
+    op(numbers, 0)(_+_)
+
+  }
 
 
   /**
@@ -67,10 +67,11 @@ object FunctionalAssignment {
     * @param i parameter for which the factorial must be calculated
     * @return i!
     */
-  def fact(i: Int): Int = if (i == 0) {
-    return 1 }
-  else
-  {return i * fact(i-1)}
+  def fact(i: Int): Int = if (i == 0)  1 else i * fact(i-1)
+
+
+
+
 
   /**
     * compute the n'th fibonacci number
@@ -81,13 +82,14 @@ object FunctionalAssignment {
     * https://en.wikipedia.org/wiki/Fibonacci_number
     */
   def fib(n: Int): Int = {
-    def tail_von_fib( n: Int, a:Int, b:Int): Int = n match {
+    def fibRec( n: Int, a:Int, b:Int): Int = n match {
       case 0 => a
-      case n => tail_von_fib( n-1, b, a+b )
-      case _ => tail_von_fib(n+1, b, a+b)
+      case _ => fibRec( n-1, b, a+b )
     }
-    return tail_von_fib( n, 0, 1)
+    fibRec( n, 0, 1)
   }
+
+
 
   /**
     * Implement a isSorted which checks whether an Array[A] is sorted according to a
@@ -97,11 +99,12 @@ object FunctionalAssignment {
     * Elements which are equal are considered to be ordered.
     */
   def isSorted[A](as: Array[A], gt: (A, A) => Boolean): Boolean = {
-    def iterate(i: Int): Boolean = {
-      if (i >= as.length - 1) true
-      else gt(as(i),as(i + 1)) && iterate(i + 1)
-    }
-    iterate(0)
+      def sort(i: Int): Boolean = {
+        if (i >= as.length -1) return true
+        else if (gt(as(i),as(i+1))) sort(i+1)
+        else return false
+      }
+      sort(0)
   }
 
   /**
@@ -110,7 +113,9 @@ object FunctionalAssignment {
     * If one sequence is shorter than the other one, the function stops at the last element
     * of the shorter sequence.
     */
-  def genPairs[A, B](as: Seq[A], bs: Seq[B]): Seq[(A, B)] = as zip bs
+  def genPairs[A, B](as: Seq[A], bs: Seq[B]): Seq[(A, B)] = as.zip(bs)
+
+  }
 
   // a simple definition of a linked list, we define our own list data structure
   sealed trait MyList[+A]
@@ -123,27 +128,28 @@ object FunctionalAssignment {
   // it also provides a convenience constructor in order to instantiate a MyList without hassle
   object MyList {
 
-    def apply[A](as: A*) : MyList[A] = {
+
+    def sum(list: MyList[Int]): Int = list match {
+      case MyNil => return 0
+      case Cons(h, t) => h + sum(t)
+
+    }
+
+
+    def product(list: MyList[Int]): Int = list match{
+
+      case MyNil => return 0
+      case Cons(h, t) => h * product(t)
+
+    }
+
+    def apply[A](as: A*): MyList[A] = {
       if (as.isEmpty) MyNil
       else Cons(as.head, apply(as.tail: _*))
     }
 
-    def sum(list: MyList[Int]): Int = list match {
-      case MyNil => 0
-      case Cons(x, xs) => x + sum(xs)
-    }
 
 
-    def product(list: MyList[Int]): Int = list match {
-      case MyNil => 1
-      case Cons(x, xs) => x * product(xs)
-
-
-
-
-
-    }
-
-  }
 
 }
+

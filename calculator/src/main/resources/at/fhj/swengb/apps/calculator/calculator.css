@@ -1,23 +1,97 @@
 /* see https://docs.oracle.com/javafx/2/api/javafx/scene/doc-files/cssref.html
-// see http://fxexperience.com/2011/12/styling-fx-buttons-with-css/
+   see http://fxexperience.com/2011/12/styling-fx-buttons-with-css/
 */
+
 #calculator {
 	-fx-background-color:#00ff00;
 }
 
-#calculator .grey {
-	-fx-background-color:#ff00ff;
+#calculator .it  {
+	-fx-background-color: #005252;
 }
 
-#calculator .blue {
-	-fx-background-color:#f4a644;
+.num_button {
+	-fx-background-color: #005252;
+	-fx-background-insets: 150%;
+	-fx-background-radius: 5%;
+	-fx-border-color: #515151;
+	-fx-border-style: solid;
+	-fx-font-family: monospace;
+	-fx-font-size: 150%;
+	-fx-text-fill: ghostwhite;
+
 }
 
-#calculator .blue {
-	-fx-background-color:#86D7D8;
+.num_button:hover {
+	-fx-background-color: ghostwhite;
+	-fx-background-insets: 150%;
+	-fx-background-radius: 5%;
+	-fx-border-color: #515151;
+	-fx-border-style: solid;
+	-fx-font-family: monospace;
+	-fx-font-size: 150%;
+	-fx-text-fill: #005252;
+
 }
 
-#calculator .red {
-	-fx-background-color:#FF0000;
+
+.op_button {
+	-fx-background-color: #414141;
+	-fx-background-insets: 150%;
+	-fx-border-color: #515151;
+	-fx-border-style: solid;
+	-fx-background-radius: 5%;
+	-fx-font-family: monospace;
+	-fx-text-fill: ghostwhite;
+	-fx-font-size: 150%;
+
+
 }
+
+.op_button:hover {
+	-fx-background-color: deepskyblue;
+	-fx-background-insets: 150%;
+	-fx-border-color: #515151;
+	-fx-border-style: solid;
+	-fx-background-radius: 5%;
+	-fx-font-family: monospace;
+	-fx-text-fill: #414141;
+	-fx-font-size: 150%;
+
+
+}
+
+.enter_button {
+	-fx-background-color: #414141;
+	-fx-background-insets: 150%;
+	-fx-background-radius: 5%;
+	-fx-border-color: #515151;
+	-fx-border-style: solid;
+	-fx-font-family: monospace;
+	-fx-text-fill: ghostwhite;
+	-fx-font-size: 150%;
+
+}
+
+.enter_button:hover {
+	-fx-background-color: deepskyblue;
+	-fx-background-insets: 150%;
+	-fx-background-radius: 5%;
+	-fx-border-color: #515151;
+	-fx-border-style: solid;
+	-fx-font-family: monospace;
+	-fx-text-fill: black;
+	-fx-font-size: 150%;
+}
+
+
+.text-field {
+	-fx-background-color: #414141;
+	-fx-border-color: #515151;
+	-fx-border-style: solid;
+	-fx-font-family: monospace;
+	-fx-text-fill: ghostwhite;
+	-fx-font-size: 150%;
+}
+
 
