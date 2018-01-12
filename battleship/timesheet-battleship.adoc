@@ -10,54 +10,11 @@
 | Actual Hours
 | Description
 
-| Arneitzj15
+| Spiessni15
 | 20.12.17
 | 2
 | 1 1/2
 | implement protobuf, compile, no big challenge, field, ship, pos, cell, Battlefield
-
-| Arneitzj15, Steinerm15
-| 21.12.17
-| 5
-| 2
-| implementing css, beautiful ship picture background, really awesome.
-
-| Arneitzj15, Steinerm15
-| 27.12.17
-| 5
-| 5
-| implementing converters
-
-| Arneitzj15
-| 27.12.17
-| 1
-| 5
-| implemented save / load buttons (working with rinnhofer thomas)
-
-| Arneitzj15
-| 28.12.17
-| 5
-| 4
-| implemented slider (working with rinnhofer thomas)
-
-| Arneitzj15, Steinerm15
-| 29.12.17
-| 2
-| 1
-| refining css, make it look beautiful
-
-|Arneitzj15
-|01.01.2018
-|4
-|3
-|implemented media player, starting with application, setCycleCount, beautiful guitar music
-
-|Arneitzj15
-|01.01.2018
-|2
-|1
-|implementing alert Box to start before game. "Are you ready?"
-
 
 
 |===
