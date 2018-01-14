@@ -26,7 +26,7 @@ class BattleShipFxApp extends Application {
 
   /*doing the media player, mp3 in folder*/
 
-  val triedRoot = Try(FXMLLoader.load[Parent](getClass.getResource("/at/fhj/swengb/apps/battleship/jfx/startupScreen.fxml")))
+  val triedRoot = Try(FXMLLoader.load[Parent](getClass.getResource("at/fhj/swengb/apps/battleship/jfx/startupScreen.fxml")))
 
 
 
@@ -36,8 +36,7 @@ class BattleShipFxApp extends Application {
 
 
 
-
-  val media = new Media("file:///C:/workspace/fhj.swengb2017.assignments/battleship/jfx/src/main/resources/at/fhj/swengb/apps/battleship/jfx/Dead_Combo_-_01_-_Povo_Que_Cas_Descalo.mp3")
+  val media = new Media("at/fhj/swengb/apps/battleship/jfx/Dead.mp3")
   val mediaPlayer = new MediaPlayer(media)
   mediaPlayer.setCycleCount(7)
 

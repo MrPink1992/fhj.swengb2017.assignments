@@ -10,10 +10,35 @@
 | Description
 
 | Spiessni15
-| 20.12.17
+| 12.01.18
+| 6
+| 5
+| draw mockups for start screen, highscore screen , credit screen and welcome screen
+
+| Steinerm15
+| 12.01.18
 | 2
-| 1 1/2
-| implement protobuf, compile, no big challenge, field, ship, pos, cell, Battlefield
+| 2
+| started writing report.pdf
+
+| Spiessni15
+| 14.01.18
+| 0.5
+| 0.5
+| digitalizing the mockups and adding them to the report
+
+| Steinerm15
+| 14.01.18
+| 2
+| 1
+| expand the report
+
+| Spiessni15
+| 14.01.18
+| 1
+| 2
+| trying to fix a error "Exception in Application constructor"
+
 
 
 |===

@@ -10,7 +10,7 @@ class BattleShipGameProtocolSpec extends WordSpecLike {
 
 
   val battleShipGameGen: Gen[BattleShipGame] = for {
-    battleField <- battleFieldGen
+    battleField <- BattleshipGameGen
   } yield BattleShipGame(battleField, i => i.toDouble, i => i.toDouble, println)
 
   "BattleShipGameProtocol" should {
@@ -23,4 +23,5 @@ class BattleShipGameProtocolSpec extends WordSpecLike {
       })
     }
   }
+
 }
