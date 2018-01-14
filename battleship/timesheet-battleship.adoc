@@ -37,7 +37,7 @@
 | 14.01.18
 | 1
 | 2
-| trying to fix a error "Exception in Application constructor"
+| trying to fix an error "Exception in Application constructor"
 
 
 
