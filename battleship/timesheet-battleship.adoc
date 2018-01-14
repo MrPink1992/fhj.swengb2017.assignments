@@ -10,10 +10,11 @@
 | Description
 
 | Spiessni15
-| 20.12.17
-| 2
-| 1 1/2
-| implement protobuf, compile, no big challenge, field, ship, pos, cell, Battlefield
+| 12.01.2018
+| 3
+| 4
+| created mock-up for start screen, welcome screen, credits screen, highscore screen & edit screen
+
 
 
 |===
