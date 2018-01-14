@@ -10,9 +10,8 @@ class BattleShipGameProtocolSpec extends WordSpecLike {
 
 
   val battleShipGameGen: Gen[BattleShipGame] = for {
-    battleField <- battleFieldGen
-  } yield BattleShipGame(battleField, i => i.toDouble, i => i.toDouble, println, )
-
+    battleField <- BattleshipGameGen
+  } yield BattleShipGame(battleField, i => i.toDouble, i => i.toDouble, println)
 
   "BattleShipGameProtocol" should {
     "be deserializable" in {
@@ -24,7 +23,5 @@ class BattleShipGameProtocolSpec extends WordSpecLike {
       })
     }
   }
-
-
 
 }
