@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="540.0" prefWidth="752.0" styleClass="bg_game" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhj.swengb.apps.battleship.jfx.BattleShipMainFxController">
+    <right>
+
+
+    </right>
+    <top>
+        <BorderPane BorderPane.alignment="CENTER">
+            <center>
+                <Label fx:id="lbHeader" contentDisplay="CENTER" styleClass="lb_header" text="Battleship Game" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font name="Apple SD GothicNeo ExtraBold" size="27.0" />
+                    </font>
+                </Label>
+            </center>
+        </BorderPane>
+    </top>
+   <left>
+        <VBox alignment="CENTER" prefHeight="507.0" prefWidth="283.0" spacing="15.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button id="button" fx:id="btStartGame" onAction="#onStartGame" prefHeight="40.0" prefWidth="211.0" styleClass="buttons" text="Start Game">
+               <font>
+                  <Font name="Apple SD GothicNeo ExtraBold" size="15.0" />
+               </font></Button>
+                <Button id="button" fx:id="btShowHighscore" onAction="#onShowHighscore" prefHeight="40.0" prefWidth="211.0" styleClass="buttons" text="Show Highscore">
+               <font>
+                  <Font name="Apple SD GothicNeo ExtraBold" size="15.0" />
+               </font></Button>
+                <Button id="button" fx:id="btCredits" layoutX="315.0" layoutY="279.0" onAction="#onShowCredits" prefHeight="40.0" prefWidth="211.0" styleClass="buttons" text="Credits">
+               <font>
+                  <Font name="Apple SD GothicNeo ExtraBold" size="15.0" />
+               </font></Button>
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </VBox>
+   </left>
+</BorderPane>

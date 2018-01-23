@@ -12,7 +12,6 @@ object BattleField {
         val v = vesselsToPlace.head
         loop(vesselsToPlace.tail, workingBattleField.addAtRandomPosition(v))
       }
-
     }
 
     loop(bf.fleet.vessels, bf.copy(fleet = bf.fleet.copy(vessels = Set())))
@@ -26,6 +25,13 @@ object BattleField {
 case class BattleField(width: Int, height: Int, fleet: Fleet) {
 
   /**
+    * All positions in this battlefield
+    */
+  val allPos: Set[BattlePos] = (for {x <- 0 until width
+                                     y <- 0 until height} yield BattlePos(x, y)).toSet
+  val availablePos: Set[BattlePos] = allPos -- fleet.occupiedPositions
+
+  /**
     * Adds vessel at a random, free position in the battlefield. if no position could be found,
     * returns the current battlefield without vessel added.
     *
@@ -36,40 +42,23 @@ case class BattleField(width: Int, height: Int, fleet: Fleet) {
 
     def loop(pos: Set[BattlePos], currBf: BattleField, found: Boolean): BattleField = {
       if (found) {
-        println(s"Placed vessel of type ${v.getClass.getSimpleName} on battlefield ...")
         currBf
       } else if (pos.isEmpty) {
-        println(s"Giving up on vessel of type ${v.getClass.getSimpleName}. No place left.")
         currBf
       } else {
-        // take random position out of available positions
         val p = pos.toSeq(Random.nextInt(pos.size))
         val vessel = v.copy(startPos = p)
         if (vessel.occupiedPos.subsetOf(availablePos)) {
-          loop(pos - p, currBf.copy(fleet = currBf.fleet.copy(vessels = currBf.fleet.vessels + vessel)), true)
+          loop(pos - p, currBf.copy(fleet = currBf.fleet.copy(vessels = currBf.fleet.vessels + vessel)), found = true)
         } else {
-          loop(pos - p, currBf, false)
+          loop(pos - p, currBf, found = false)
         }
       }
     }
 
-    loop(availablePos, this, false)
+    loop(availablePos, this, found = false)
 
   }
-
-
-  /**
-    * All positions in this battlefield
-    */
-  val allPos: Set[BattlePos] = (for {x <- 0 until width
-                                     y <- 0 until height} yield BattlePos(x, y)).toSet
-
-
-  val availablePos: Set[BattlePos] = allPos -- fleet.occupiedPositions
-
-  var steps: List[BattlePos] = List()
-
-  def addStep(pos: BattlePos): Unit = if (!steps.contains(pos)) steps = steps :+ pos
 
   def randomFleet(): Fleet = {
     Fleet(Set[Vessel]())

@@ -3,4 +3,6 @@ target/
 *.class
 *.log
 *.iml
+*.bin
 *Protobuf.java
+out/

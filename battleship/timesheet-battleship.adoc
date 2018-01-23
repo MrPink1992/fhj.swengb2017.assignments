@@ -1,5 +1,8 @@
 == Time expenditure: battleship assignment
 
+=== Notes:
+The project is based on homework 4 assignment.
+
 [cols="1,1,1, 1,4", options="header"]
 .Time expenditure
 |===
@@ -31,7 +34,7 @@
 | 14.01.18
 | 2
 | 1
-| expand the report
+| expanded project-report.pdf
 
 | Spiessni15
 | 14.01.18
@@ -40,9 +43,83 @@
 | trying to fix an error "Exception in Application constructor"
 
 | Steinerm15
-| 14.01.2018
+| 14.01.18
 | 2
 | 1
-| finished the report
+| finished project-report.pdf
 
-|===
+| Spiessni15
+| 15.01.18
+| 2
+| 3
+| bug fixes in general code implementation
+
+| Steinerm15
+| 15.01.18
+| 2
+| 5
+| implemented mockups in fxml & css
+
+| Spiessni15
+| 17.01.18
+| 1
+| 2
+| implementation of splash fxml stage
+
+| Spiessni15
+| 18.01.18
+| 1
+| 2.5
+| implemented switching from splash to welcome screen
+
+| Spiessni15 & Steinerm15
+| 18.01.18
+| 2
+| 5
+| implemented missing switches between scenes
+
+| Steinerm15
+| 19.01.18
+| 2.5
+| 3.5
+| extended fx controllers
+
+| Steinerm15
+| 20.01.18
+| 2
+| 2
+| added audio
+
+| Spiessni15
+| 21.01.18
+| 2.5
+| 3.5
+| implemented save of game state
+
+| Steinerm15
+| 21.01.18
+| 1
+| 1
+| minor design changes
+
+| Spiessni15
+| 22.01.18
+| 1
+| 2
+| finally implemented all scene switches
+
+| Steinerm15
+| 23.01.18
+| 0.5
+| 2
+| bug fixes
+
+| Spiessni15
+| 23.01.18
+| 3
+| 5
+| implemented to load previous game
+
+
+
+|===+-

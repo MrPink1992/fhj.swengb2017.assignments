@@ -10,7 +10,7 @@ object FleetConfig {
     FleetConfig(Map(classOf[BattleShip] -> 1,
       classOf[Cruiser] -> 2,
       classOf[Destroyer] -> 3,
-      classOf[Submarine] -> 4)
+      classOf[Submarine] -> 2)
     )
 
   val OneShip: FleetConfig = FleetConfig(Map(classOf[BattleShip] -> 1))
