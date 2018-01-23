@@ -6,3 +6,4 @@ target/
 *.bin
 *Protobuf.java
 out/
+.DS_Store
