@@ -26,8 +26,7 @@ class BattleShipGameReplayFxController extends Initializable {
 
   @FXML private var clickHistorySlider: Slider = _
 
-  @FXML def onSliderChanged(): Unit =
-  {
+  @FXML def onSliderChanged(): Unit = {
 
     val newSliderPosition: Int = clickHistorySlider.getValue.toInt - 1
 

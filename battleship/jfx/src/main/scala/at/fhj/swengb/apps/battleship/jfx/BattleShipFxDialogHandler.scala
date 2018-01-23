@@ -11,10 +11,8 @@ import at.fhj.swengb.apps.battleship.model._
 
 import scala.util.{Failure, Success, Try}
 
-case class BattleShipFxDialogHandler()
-{
-  def initMultiPlayer(playerNr: Int): (Player, BattleField) =
-  {
+case class BattleShipFxDialogHandler() {
+  def initMultiPlayer(playerNr: Int): (Player, BattleField) = {
     val fxml: String = "/at/fhj/swengb/apps/battleship/jfx/fxml/battleshipMutiplayerEditDialog.fxml"
     val fxmlLoader: FXMLLoader = new FXMLLoader()
 
@@ -52,7 +50,6 @@ case class BattleShipFxDialogHandler()
   }
 
 
-
   def askResetHighscoreDialog(): Boolean = {
     val alert = new Alert(AlertType.CONFIRMATION)
     alert.setTitle("Clear Highscores")
@@ -73,7 +70,6 @@ case class BattleShipFxDialogHandler()
     alert.setHeaderText("Next player: " + newPlayer.name)
     true
   }
-
 
 
   def showHigschoreGameDialog(playRound: BattleShipGamePlayRound): Unit = {

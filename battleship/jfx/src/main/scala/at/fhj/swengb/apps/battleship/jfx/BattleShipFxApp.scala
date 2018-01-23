@@ -4,7 +4,7 @@ import javafx.application.Preloader.StateChangeNotification
 import javafx.application.{Application, Preloader}
 import javafx.fxml.FXMLLoader
 import javafx.scene.control.ProgressBar
-import javafx.scene.image.{Image, ImageView}
+import javafx.scene.image.ImageView
 import javafx.scene.layout.BorderPane
 import javafx.scene.media.Media
 import javafx.scene.{Parent, Scene}
@@ -15,8 +15,7 @@ import com.sun.javafx.application.LauncherImpl
 
 import scala.util.{Failure, Success, Try}
 
-object BattleShipFxApp
-{
+object BattleShipFxApp {
   private var rootStage: Stage = _
   private var jukeBox: BattleShipJukeBox = _
   private var usedFleetConfig: FleetConfig = FleetConfig.Standard
@@ -39,11 +38,9 @@ object BattleShipFxApp
   def getCreditsScene: Scene = parseScene("/at/fhj/swengb/apps/battleship/jfx/fxml/battleshipCreditsfx.fxml")
 
 
-  private def parseScene(fxml: String): Scene =
-  {
+  private def parseScene(fxml: String): Scene = {
     val triedScene = Try(FXMLLoader.load[Parent](getClass.getResource(fxml)))
-    triedScene match
-    {
+    triedScene match {
       case Success(root) =>
         val scene: Scene = new Scene(root)
         scene.getStylesheets.clear()
@@ -58,17 +55,14 @@ object BattleShipFxApp
 
   def setUsedFleetConfig(newFleetConfig: FleetConfig): Unit = usedFleetConfig = newFleetConfig
 
-  def initializeScenes(): Unit =
-  {
+  def initializeScenes(): Unit = {
     welcomeScreen = parseScene("/at/fhj/swengb/apps/battleship/jfx/fxml/battleshipMainfx.fxml")
     gameScreen = parseScene("/at/fhj/swengb/apps/battleship/jfx/fxml/battleshipGamefx.fxml")
   }
 
-  def showScene(scene: Scene, stage: Stage): Unit =
-  {
+  def showScene(scene: Scene, stage: Stage): Unit = {
     if (stage == null) System.exit(1)
-    else
-    {
+    else {
       stage.setScene(scene)
       stage.show()
     }
@@ -78,13 +72,11 @@ object BattleShipFxApp
   def main(args: Array[String]): Unit = LauncherImpl.launchApplication(classOf[BattleShipFxApp], classOf[BattleShipFxSlashScreen], args)
 }
 
-class BattleShipFxApp extends Application
-{
-  override def start(stage: Stage): Unit =
-  {
+class BattleShipFxApp extends Application {
+  override def start(stage: Stage): Unit = {
     stage.setTitle("Battleship by Eierbären")
     stage.setResizable(false)
-    
+
 
     BattleShipFxApp.rootStage = stage
 
@@ -93,8 +85,7 @@ class BattleShipFxApp extends Application
     BattleShipFxApp.jukeBox.playBackgroundMusic()
   }
 
-  override def init(): Unit =
-  {
+  override def init(): Unit = {
     val backgroundMedia: Media = new Media(getClass.getResource("/at/fhj/swengb/apps/battleship/jfx/music/Battlefield1942Sound.mp3").toExternalForm)
     val shipHitMedia: Media = new Media(getClass.getResource("/at/fhj/swengb/apps/battleship/jfx/music/explosion.mp3").toExternalForm)
     val missedMusic: Media = new Media(getClass.getResource("/at/fhj/swengb/apps/battleship/jfx/music/missed_hit.mp3").toExternalForm)
@@ -106,13 +97,11 @@ class BattleShipFxApp extends Application
 }
 
 
-class BattleShipFxSlashScreen extends Preloader
-{
+class BattleShipFxSlashScreen extends Preloader {
   private var stage: Stage = _
   private var progressBar: ProgressBar = new ProgressBar
 
-  override def start(primaryStage: Stage): Unit =
-  {
+  override def start(primaryStage: Stage): Unit = {
     stage = primaryStage
 
     stage.initStyle(StageStyle.UNDECORATED)
@@ -124,8 +113,7 @@ class BattleShipFxSlashScreen extends Preloader
     stage.show()
   }
 
-  private def createScene: Scene =
-  {
+  private def createScene: Scene = {
     val mainPane: BorderPane = new BorderPane()
 
     val image: ImageView = new ImageView(getClass.getResource("/at/fhj/swengb/apps/battleship/jfx/pics/SplashScreen.png").toString)
@@ -140,10 +128,9 @@ class BattleShipFxSlashScreen extends Preloader
     new Scene(mainPane)
   }
 
-  override def handleProgressNotification(pn: Preloader.ProgressNotification): Unit =  progressBar.setProgress(pn.getProgress)
+  override def handleProgressNotification(pn: Preloader.ProgressNotification): Unit = progressBar.setProgress(pn.getProgress)
 
-  override def handleStateChangeNotification(evt: Preloader.StateChangeNotification): Unit =
-  {
+  override def handleStateChangeNotification(evt: Preloader.StateChangeNotification): Unit = {
     if (evt.getType.equals(StateChangeNotification.Type.BEFORE_START)) stage.hide()
   }
 }

@@ -12,8 +12,7 @@ import javafx.util.Callback
 
 import at.fhj.swengb.apps.battleship.model.{BattleShipGamePlayRound, HighScore}
 
-class BattleShipHighscoreFxController extends Initializable
-{
+class BattleShipHighscoreFxController extends Initializable {
 
   @FXML private var Highscoretable: TableView[HighScoreEntry] = _
   @FXML private var btReplay: Button = _
@@ -23,29 +22,38 @@ class BattleShipHighscoreFxController extends Initializable
   @FXML private var colClickAmount: TableColumn[HighScoreEntry, Int] = _
 
 
-  @FXML def onReplayGame(): Unit =
-  {
+  @FXML def onReplayGame(): Unit = {
     val selectedEntry: HighScoreEntry = Highscoretable.getSelectionModel.getSelectedItem
 
-    if (selectedEntry != null)
-    {
+    if (selectedEntry != null) {
       val selectedBattleShipPlayRound = selectedEntry.getBattleShipPlayRound
       BattleShipFxDialogHandler().showHigschoreGameDialog(selectedBattleShipPlayRound)
     }
   }
 
 
-  @FXML def resetHighscore(): Unit =
-  {
+  @FXML def resetHighscore(): Unit = {
     val deleteHighscore: Boolean = BattleShipFxDialogHandler().askResetHighscoreDialog()
-    if (deleteHighscore) { HighScore().clearHighscore(); initData() }
+    if (deleteHighscore) {
+      HighScore().clearHighscore(); initData()
+    }
   }
 
+  private def initData(): Unit = {
+    val tableData: ObservableList[HighScoreEntry] = convertToObservableList(HighScore().getSortedHighScore)
+    this.Highscoretable.setItems(tableData)
+  }
+
+  private def convertToObservableList(highScore: Seq[BattleShipGamePlayRound]): ObservableList[HighScoreEntry] = {
+    val tableData: ObservableList[HighScoreEntry] = FXCollections.observableArrayList()
+    highScore.foreach(highScore => tableData.add(HighScoreEntry(highScore)))
+
+    tableData
+  }
 
   @FXML def returnToMain(): Unit = BattleShipFxApp.showScene(BattleShipFxApp.getWelcomeScene, BattleShipFxApp.getRootStage)
 
-  override def initialize(location: URL, resources: ResourceBundle): Unit =
-  {
+  override def initialize(location: URL, resources: ResourceBundle): Unit = {
     initTableViewColumn[String](colDate, _.formatedDate)
     initTableViewColumn[String](colWinner, _.winnerName)
     initTableViewColumn[String](colGameName, _.playroundName)
@@ -58,37 +66,20 @@ class BattleShipHighscoreFxController extends Initializable
     initData()
   }
 
-  private def initData(): Unit =
-  {
-    val tableData: ObservableList[HighScoreEntry] = convertToObservableList(HighScore().getSortedHighScore)
-    this.Highscoretable.setItems(tableData)
-  }
-
-  private def convertToObservableList(highScore: Seq[BattleShipGamePlayRound]): ObservableList[HighScoreEntry] =
-  {
-    val tableData: ObservableList[HighScoreEntry] = FXCollections.observableArrayList()
-    highScore.foreach(highScore => tableData.add(HighScoreEntry(highScore)))
-
-    tableData
-  }
-
   def initTableViewColumn[T]: (TableColumn[HighScoreEntry, T], (HighScoreEntry) => Any) => Unit = initTableViewColumnCellValueFactory[HighScoreEntry, T]
 
-  def initTableViewColumnCellValueFactory[HighScoreEntry, T](column: TableColumn[HighScoreEntry, T], function: HighScoreEntry => Any): Unit =
-  {
+  def initTableViewColumnCellValueFactory[HighScoreEntry, T](column: TableColumn[HighScoreEntry, T], function: HighScoreEntry => Any): Unit = {
     column.setCellValueFactory(createCellValueFactory(cell => function(cell.getValue).asInstanceOf[ObservableValue[T]]))
   }
 
   private def createCellValueFactory[HighScoreEntry, T](fn: TableColumn.CellDataFeatures[HighScoreEntry, T] => ObservableValue[T]):
-  Callback[TableColumn.CellDataFeatures[HighScoreEntry, T], ObservableValue[T]] =
-  {
+  Callback[TableColumn.CellDataFeatures[HighScoreEntry, T], ObservableValue[T]] = {
     (cdf: TableColumn.CellDataFeatures[HighScoreEntry, T]) => fn(cdf)
   }
 
 }
 
-class HighScoreEntry
-{
+class HighScoreEntry {
   val formatedDate: SimpleStringProperty = new SimpleStringProperty()
   val winnerName: SimpleStringProperty = new SimpleStringProperty()
   val playroundName: SimpleStringProperty = new SimpleStringProperty()
@@ -109,10 +100,8 @@ class HighScoreEntry
   def getBattleShipPlayRound: BattleShipGamePlayRound = playRound
 }
 
-object HighScoreEntry
-{
-  def apply(playRound: BattleShipGamePlayRound): HighScoreEntry =
-  {
+object HighScoreEntry {
+  def apply(playRound: BattleShipGamePlayRound): HighScoreEntry = {
     val hsEntry = new HighScoreEntry
     hsEntry.setDate(playRound.startDate)
     hsEntry.setWinner(playRound.getWinnerName)

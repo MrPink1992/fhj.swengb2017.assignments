@@ -137,8 +137,7 @@ class BattleShipMutliplayerEditFxController extends Initializable {
 
       val illegalePos: Set[BattlePos] = newVessel.occupiedPos.diff(gameField.availablePos)
       if (illegalePos.nonEmpty) {}
-      else
-      {
+      else {
         val newShips: Seq[Vessel] = newVessel +: gameField.fleet.vessels.toSeq
         gameField = BattleField(10, 10, new Fleet(newShips.toSet))
       }
