@@ -7,7 +7,7 @@ object Fleet {
 
   val Empty = Fleet(Set[Vessel]())
   val Default: Fleet = {
-    val battleships: Set[Vessel] = Set(new BattleShip("Ardian", BattlePos(0, 0), Vertical))
+    val battleships: Set[Vessel] = Set(new BattleShip("Boaty McBoatface", BattlePos(0, 0), Vertical))
     val cruisers: Set[Vessel] = Set(new Cruiser("Cruz", BattlePos(1, 0), Vertical), new Cruiser("Santa", BattlePos(2, 0), Vertical))
     val destroyers: Set[Vessel] = Set(
       new Destroyer("Graz", BattlePos(5, 5), Horizontal),
@@ -48,7 +48,6 @@ object Fleet {
 
 }
 
-// ships may not overlap, each vessel should have a distinct place on the battleground
 case class Fleet(vessels: Set[Vessel]) {
 
   def occupiedPositions: Set[BattlePos] = vessels.flatMap(v => v.occupiedPos)

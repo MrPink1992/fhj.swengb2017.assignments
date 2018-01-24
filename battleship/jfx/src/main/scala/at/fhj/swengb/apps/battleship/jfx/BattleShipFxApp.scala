@@ -106,8 +106,8 @@ class BattleShipFxSlashScreen extends Preloader {
 
     stage.initStyle(StageStyle.UNDECORATED)
 
-    stage.setWidth(600)
-    stage.setHeight(240)
+    stage.setWidth(1440)
+    stage.setHeight(900)
 
     stage.setScene(createScene)
     stage.show()
@@ -117,8 +117,8 @@ class BattleShipFxSlashScreen extends Preloader {
     val mainPane: BorderPane = new BorderPane()
 
     val image: ImageView = new ImageView(getClass.getResource("/at/fhj/swengb/apps/battleship/jfx/pics/SplashScreen.png").toString)
-    image.setFitWidth(600)
-    image.setFitHeight(240)
+    image.setFitWidth(1440)
+    image.setFitHeight(900)
 
     progressBar.setPrefWidth(600)
 

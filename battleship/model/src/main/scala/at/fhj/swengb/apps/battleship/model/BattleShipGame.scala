@@ -48,7 +48,6 @@ case class BattleShipGame(player: Player,
   * Contains all already clicked positions.
   */
   var clickedPositions: List[BattlePos] = List()
-  //Flag if game is over and all ships in sunkShips
   var isGameOver: Boolean = false
 
   def getCells: Seq[BattleFxCell] = cells
@@ -59,10 +58,7 @@ case class BattleShipGame(player: Player,
     * @param pos Position which was clicked and is requested to add to list
     */
   def updateClickedPositions(pos: BattlePos): Unit = {
-    //We keep already clicked positions awell!
     clickedPositions = pos :: clickedPositions
-
-    //Update GUI after click. On Multiplayermode switch player/games!
     updateGUI(this)
   }
 
@@ -80,7 +76,7 @@ case class BattleShipGame(player: Player,
       hits = hits.updated(vessel, oldPos + pos)
 
       if (oldPos.contains(pos)) {
-        log(player.name + ": Position was triggered two times. U OK M8?")
+        log(player.name + ": Field was clicked 2 times. WTF?")
       }
 
       if (vessel.occupiedPos == hits(vessel)) {
@@ -94,9 +90,7 @@ case class BattleShipGame(player: Player,
       }
 
     } else {
-      // vessel is not part of the map
-      // but vessel was hit!
-      // it was hit for the first time ever!
+
       hits = hits.updated(vessel, Set(pos))
     }
 

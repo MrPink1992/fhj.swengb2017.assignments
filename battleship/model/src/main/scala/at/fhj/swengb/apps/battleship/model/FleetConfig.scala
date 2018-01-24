@@ -27,7 +27,6 @@ object FleetConfig {
   */
 case class FleetConfig(vesselMap: Map[Class[_ <: Vessel], Int]) {
 
-  // for a given configuration, returns the total number of expected occupied battle positions
   lazy val numberOfTotalOccupiedPositions: Int = {
     vesselMap.map {
       case (tpe, count) => (tpe match {

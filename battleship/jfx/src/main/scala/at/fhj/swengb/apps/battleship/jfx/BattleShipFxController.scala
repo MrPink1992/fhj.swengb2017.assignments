@@ -31,7 +31,7 @@ class BattleShipFxController extends Initializable {
   @FXML def newGame(): Unit = {
 
     def createPlayer(name: String, cssStyle: String): Player = {
-      if (name.isEmpty) Player("Unknown", cssStyle)
+      if (name.isEmpty) Player("Noname", cssStyle)
       else Player(name, cssStyle)
     }
 
@@ -63,11 +63,9 @@ class BattleShipFxController extends Initializable {
       fileChooser.setTitle("Choose location to save game!")
       fileChooser.getExtensionFilters.add(new ExtensionFilter("Protobuf binary files", "*.bin"))
 
-      //Handle selected file
       val chosenFile: File = fileChooser.showSaveDialog(null)
 
       if (chosenFile != null) {
-        //Save current state
         val protoBattleShipGame = BattleShipProtocol.convert(gamePlayround)
         protoBattleShipGame.writeTo(Files.newOutputStream(Paths.get(chosenFile.getAbsolutePath)))
         appendLog("Saved Game in " + chosenFile.getAbsolutePath)

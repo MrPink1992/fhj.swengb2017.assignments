@@ -22,7 +22,6 @@ object BattleShipGamePlayRound
             updateGUIAfterAction: BattleShipGame => Unit,
             jukeBox: BattleShipJukeBox): BattleShipGamePlayRound = {
 
-    //Create Games for each player. Battlefield is field of enemy
     val gamePlayer1: BattleShipGame = createBattleShipGame(player1, battlefieldPlayer2, getCellWidth, getCellHeight, log, updateGUIAfterAction, jukeBox)
     val gamePlayer2: BattleShipGame = createBattleShipGame(player2, battlefieldPlayer1, getCellWidth, getCellHeight, log, updateGUIAfterAction, jukeBox)
 
@@ -38,15 +37,12 @@ object BattleShipGamePlayRound
             jukeBox: BattleShipJukeBox,
             unused: Int => Int): BattleShipGamePlayRound = {
 
-    //Read Protobuf-Object and convert it to a BattleShipGamePlayRound-Instance
     val protoBattleShipGamePlayRound: BattleShipProtobuf.BattleShipPlayRound = parse(Files.newInputStream(Paths.get(file.getAbsolutePath)))
     val loadedBattleShipGamePlayRound: BattleShipGamePlayRound = BattleShipProtocol.convert(protoBattleShipGamePlayRound)
 
-    //Initialize all games (Single/Multiplayer mode)
     val games: Seq[BattleShipGame] =
       loadedBattleShipGamePlayRound.games.map(e => createBattleShipGame(e, getCellWidth, getCellHeight, log, updateGUIAfterAction, jukeBox))
 
-    //Create new gamePlayround-Event based on loaded Data
     BattleShipGamePlayRound(loadedBattleShipGamePlayRound.name, games, loadedBattleShipGamePlayRound.startDate)
   }
 
@@ -69,7 +65,7 @@ object BattleShipGamePlayRound
     val w1: Seq[String] = Seq("The", "Dreadful", "Heroic", "Destroying", "Intergalactic")
     val w2: Seq[String] = Seq("battle", "fight", "encounter", "conflict", "war", "clash")
     val w3: Seq[String] = Seq("of", "at", "in")
-    val w4: Seq[String] = Seq("Mars", "Yupiter", "Neptun", "Pluto")
+    val w4: Seq[String] = Seq("Operation Trident", "Operation Praying Mantis", "Desert Storm", "Javasea")
 
     val rGen: Random = new Random()
 
@@ -128,7 +124,6 @@ case class BattleShipGamePlayRound(name: String, games: Seq[BattleShipGame], sta
   var currentBattleShipGame: BattleShipGame = games.head
   private var winner: Player = _
 
-  //Return total amount of moves in play round
   def getTotalAmountOfMoves: Int = games.foldLeft(0)((acc, game) => acc + game.clickedPositions.size)
 
   def getMergedClickedPositions: Seq[BattlePos] =
@@ -175,8 +170,8 @@ case class BattleShipGamePlayRound(name: String, games: Seq[BattleShipGame], sta
   {
     getWinner match
     {
-      case None => "???"
-      case Some(w) => w.name
+      case None => "mhmm?"
+      case Some(winner) => winner.name
     }
   }
 

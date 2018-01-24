@@ -10,33 +10,27 @@ case class BattleShipJukeBox(backgroundMusic: Media, shipHitMedia: Media, waterH
 
     player
   }
-  private var muteBackground: Boolean = false
-  private var muteSoundEffect: Boolean = false
+  private var backgroundMute: Boolean = false
+  private var soundeffectMute: Boolean = false
 
   def playMusic(background: Boolean, effect: Boolean): Unit = {
-    muteBackground = !background
-    muteSoundEffect = !effect
-
-    //refresh background music
+    backgroundMute = !background
+    soundeffectMute = !effect
     playBackgroundMusic()
   }
 
-  def isTotalMute: Boolean = muteBackground && muteSoundEffect
+  def isTotalMute: Boolean = backgroundMute && soundeffectMute
 
   def setTotalMute(state: Boolean): Unit = {
-    muteBackground = state
-    muteSoundEffect = state
+    backgroundMute = state
+    soundeffectMute = state
 
-    //refresh background music
     playBackgroundMusic()
   }
 
-  def isBackGroundMusicMute: Boolean = muteBackground
-
-  def isSoundEffectsMute: Boolean = muteSoundEffect
 
   def hitShip(): Unit = {
-    if (!muteSoundEffect) {
+    if (!soundeffectMute) {
       backgroundMusicPlayer.stop()
       initMediaPlayer(shipHitMedia).play()
       playBackgroundMusic()
@@ -44,7 +38,7 @@ case class BattleShipJukeBox(backgroundMusic: Media, shipHitMedia: Media, waterH
   }
 
   def playBackgroundMusic(): Unit = {
-    if (!muteBackground)
+    if (!backgroundMute)
       backgroundMusicPlayer.play()
     else
       backgroundMusicPlayer.pause()
@@ -56,7 +50,7 @@ case class BattleShipJukeBox(backgroundMusic: Media, shipHitMedia: Media, waterH
   }
 
   def hitWater(): Unit = {
-    if (!muteSoundEffect) {
+    if (!soundeffectMute) {
       backgroundMusicPlayer.stop()
       initMediaPlayer(waterHitMedia).play()
       playBackgroundMusic()
