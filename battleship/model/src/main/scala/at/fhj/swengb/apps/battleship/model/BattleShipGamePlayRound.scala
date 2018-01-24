@@ -65,7 +65,7 @@ object BattleShipGamePlayRound
     val w1: Seq[String] = Seq("The", "Dreadful", "Heroic", "Destroying", "Intergalactic")
     val w2: Seq[String] = Seq("battle", "fight", "encounter", "conflict", "war", "clash")
     val w3: Seq[String] = Seq("of", "at", "in")
-    val w4: Seq[String] = Seq("Operation Trident", "Operation Praying Mantis", "Desert Storm", "Javasea")
+    val w4: Seq[String] = Seq("Operation Trident", "Praying Mantis", "Desert Storm", "Javasea")
 
     val rGen: Random = new Random()
 

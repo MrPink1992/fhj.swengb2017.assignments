@@ -69,7 +69,7 @@
     -fx-background-size: cover;
 
 }
-
+/*
 .bg_playerA {
     -fx-background-image: url(pics/backgroundGame.png);
     -fx-background-size: cover;
@@ -79,7 +79,7 @@
     -fx-background-image: url(pics/backgroundGame.png);
     -fx-background-size: cover;
 }
-
+*/
 .buttons {
     -fx-background-color: #090a0c,
     linear-gradient(#3a4760 0%, #1f2429 20%, #191d22 100%),

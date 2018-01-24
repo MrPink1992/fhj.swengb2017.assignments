@@ -35,9 +35,9 @@ object Fleet {
             a <- 0 until v} yield {
         val direction = if (Random.nextBoolean()) Horizontal else Vertical
         k match {
-          case x if x == classOf[BattleShip] => new BattleShip(s"Battleship $i $a", BattlePos(0, 0), direction)
-          case x if x == classOf[Cruiser] => new Cruiser(s"Cruiser $i $a", BattlePos(0, 0), direction)
-          case x if x == classOf[Destroyer] => new Destroyer(s"Destroyer $i $a", BattlePos(0, 0), direction)
+          case x if x == classOf[BattleShip] => new BattleShip(s"Destroyer $i $a", BattlePos(0, 0), direction)
+          case x if x == classOf[Cruiser] => new Cruiser(s"Heavy Cruiser $i $a", BattlePos(0, 0), direction)
+          case x if x == classOf[Destroyer] => new Destroyer(s"Corvette $i $a", BattlePos(0, 0), direction)
           case x if x == classOf[Submarine] => new Submarine(s"Submarine $i $a", BattlePos(0, 0), direction)
         }
       }).toSet
