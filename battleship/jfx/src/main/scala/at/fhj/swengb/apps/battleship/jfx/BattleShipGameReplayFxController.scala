@@ -57,10 +57,10 @@ class BattleShipGameReplayFxController extends Initializable {
 
   private def initGameField(game: BattleShipGame, showClicks: Seq[BattlePos], battleGroundGridPane: GridPane): Unit = {
     battleGroundGridPane.getChildren.clear()
-    for (c <- game.getCells) {
-      battleGroundGridPane.add(c, c.pos.x, c.pos.y)
-      c.setDisable(true)
-      c.init(showClicks)
+    for(cell <- game.getCells) {
+      battleGroundGridPane.add(cell, cell.pos.x, cell.pos.y)
+      cell.setDisable(true)
+      cell.init(showClicks)
     }
   }
 
