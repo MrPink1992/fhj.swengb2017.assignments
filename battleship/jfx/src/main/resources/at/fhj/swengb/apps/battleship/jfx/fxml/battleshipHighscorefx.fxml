@@ -45,7 +45,7 @@
             <content>
                 <BorderPane prefHeight="440.0" prefWidth="719.0">
                     <center>
-                        <TableView fx:id="Highscoretable" fixedCellSize="100.0" prefHeight="355.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+                        <TableView fx:id="Highscoretable"  fixedCellSize="100.0" prefHeight="355.0" prefWidth="750.0" BorderPane.alignment="CENTER">
                             <columns>
                                 <TableColumn fx:id="colDate" editable="false" prefWidth="130.0" text="Date" />
                                 <TableColumn fx:id="colWinner" editable="false" minWidth="20.0" prefWidth="150.0" text="Winner" />
