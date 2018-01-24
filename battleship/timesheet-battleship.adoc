@@ -72,7 +72,7 @@ The project is based on homework 4 assignment.
 | 2.5
 | implemented switching from splash to welcome screen
 
-| Spiessni15 & Steinerm15
+| Steinerm15
 | 18.01.18
 | 2
 | 5
