@@ -24,20 +24,20 @@
     </top>
     <bottom>
         <BorderPane prefHeight="51.0" prefWidth="752.0" BorderPane.alignment="CENTER">
-            <left>
-                <Button fx:id="btReplay" mnemonicParsing="false" onAction="#onReplayGame" styleClass="buttons" text="Replay" BorderPane.alignment="CENTER" />
-            </left>
             <padding>
                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </padding>
-            <right>
+         <center>
                 <HBox spacing="30.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Button id="button" fx:id="btClearHighscore" onAction="#resetHighscore" prefHeight="27.0" prefWidth="142.0" styleClass="buttons" text="Delete Highscore" />
-                        <Button id="button" fx:id="btReturnToMain" layoutX="10.0" layoutY="10.0" onAction="#returnToMain" prefHeight="27.0" prefWidth="142.0" styleClass="buttons" text="Menu" />
+                        <Button id="button" fx:id="btReturnToMain" layoutX="10.0" layoutY="10.0" onAction="#returnToMain" prefHeight="27.0" prefWidth="162.0" styleClass="buttons" text="Menu" />
+                        <Button id="button" fx:id="btClearHighscore" onAction="#resetHighscore" prefHeight="27.0" prefWidth="166.0" styleClass="buttons" text="Delete Highscore" />
                     </children>
                 </HBox>
-            </right>
+         </center>
+         <right>
+                <Button fx:id="btReplay" mnemonicParsing="false" onAction="#onReplayGame" prefHeight="27.0" prefWidth="94.0" styleClass="buttons" text="Replay" BorderPane.alignment="CENTER" />
+         </right>
         </BorderPane>
     </bottom>
     <center>
@@ -45,7 +45,7 @@
             <content>
                 <BorderPane prefHeight="440.0" prefWidth="719.0">
                     <center>
-                        <TableView fx:id="Highscoretable"  fixedCellSize="100.0" prefHeight="355.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+                        <TableView fx:id="Highscoretable" fixedCellSize="100.0" prefHeight="290.0" prefWidth="482.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
                             <columns>
                                 <TableColumn fx:id="colDate" editable="false" prefWidth="130.0" text="Date" />
                                 <TableColumn fx:id="colWinner" editable="false" minWidth="20.0" prefWidth="150.0" text="Winner" />

@@ -68,6 +68,7 @@
     -fx-background-image: url(pics/Credits.png);
     -fx-background-size: cover;
 
+
 }
 .buttons {
     -fx-background-color: #090a0c,
@@ -99,3 +100,11 @@
     -fx-padding: 10 20 10 20;
 }
 
+.vbox_bg{
+    -fx-background-color: transperent;
+}
+
+.table-view{
+
+    -fx-background-color: transparent;
+}

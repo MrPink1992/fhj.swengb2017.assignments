@@ -19,9 +19,9 @@
 
     </right>
     <top>
-        <Label fx:id="lbHeader" contentDisplay="CENTER" styleClass="lb_header" text="BattleshipGame" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" BorderPane.alignment="BOTTOM_CENTER">
+        <Label fx:id="lbHeader" contentDisplay="CENTER" styleClass="lb_header" text="Battleship" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" BorderPane.alignment="BOTTOM_CENTER">
             <font>
-                <Font size="27.0" />
+                <Font name="Apple SD GothicNeo ExtraBold" size="27.0" />
             </font>
         </Label>
     </top>
@@ -59,35 +59,36 @@
     <bottom>
         <Slider fx:id="clickHistorySlider" majorTickUnit="1.0" max="0.0" minorTickCount="0" onMouseClicked="#onSliderChanged" prefHeight="69.0" prefWidth="752.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" BorderPane.alignment="CENTER" />
     </bottom>
-    <left>
-        <BorderPane fx:id="btRight" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-            <center>
-                <TextArea fx:id="log" prefHeight="413.0" prefWidth="182.0" BorderPane.alignment="CENTER" />
-            </center>
-            <top>
-                <HBox prefHeight="28.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                    <children>
-                        <Label fx:id="lbPlayerHeader" styleClass="lb_player" text="Player: " />
-                        <Label fx:id="lbPlayerName" styleClass="lb_player" />
-                    </children>
-                </HBox>
-            </top>
-        </BorderPane>
-    </left>
     <right>
         <BorderPane fx:id="btLeft" prefHeight="413.0" prefWidth="135.0" BorderPane.alignment="CENTER">
-            <top>
-                <BorderPane fx:id="btButtons" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <right>
-                        <VBox fx:id="shipStatisticBox" prefHeight="200.0" prefWidth="211.0" BorderPane.alignment="CENTER">
-                     <children>
-                              <Label fx:id="lbStatisticHeader" alignment="CENTER" contentDisplay="CENTER" styleClass="lb_player" text="Ship-Status:" textAlignment="CENTER" />
-                     </children></VBox>
-               </right>
-                </BorderPane>
-            </top>
-            <center>
-                <BorderPane fx:id="btStatistic" styleClass="bg_gray" BorderPane.alignment="CENTER">
+         <left>
+              <BorderPane fx:id="btRight" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <center>
+                      <TextArea fx:id="log" prefHeight="413.0" prefWidth="182.0" BorderPane.alignment="CENTER" />
+                  </center>
+                  <top>
+                      <HBox prefHeight="28.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                          <children>
+                              <Label fx:id="lbPlayerHeader" styleClass="lb_player" text="Player: " />
+                              <Label fx:id="lbPlayerName" styleClass="lb_player" />
+                          </children>
+                      </HBox>
+                  </top>
+              </BorderPane>
+         </left>
+        </BorderPane>
+    </right>
+   <left>
+          <BorderPane fx:id="btButtons" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <right>
+                  <VBox fx:id="shipStatisticBox" opacity="0.0" prefHeight="200.0" prefWidth="211.0" BorderPane.alignment="CENTER">
+               <children>
+                        <Label fx:id="lbStatisticHeader" alignment="CENTER" contentDisplay="CENTER" styleClass="lb_player" text="War Log:" textAlignment="CENTER" />
+               </children>
+            </VBox>
+         </right>
+         <bottom>
+                <BorderPane fx:id="btStatistic" BorderPane.alignment="CENTER">
                <right>
                         <VBox spacing="5.0" BorderPane.alignment="CENTER">
                             <children>
@@ -102,7 +103,7 @@
                         </VBox>
                </right>
                 </BorderPane>
-            </center>
-        </BorderPane>
-    </right>
+         </bottom>
+          </BorderPane>
+   </left>
 </BorderPane>
