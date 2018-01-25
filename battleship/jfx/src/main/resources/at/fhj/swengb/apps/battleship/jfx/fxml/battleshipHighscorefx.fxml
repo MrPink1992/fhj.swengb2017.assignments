@@ -41,13 +41,13 @@
         </BorderPane>
     </bottom>
     <center>
-        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
             <content>
                 <BorderPane prefHeight="440.0" prefWidth="719.0">
                     <center>
-                        <TableView fx:id="Highscoretable" fixedCellSize="100.0" prefHeight="290.0" prefWidth="482.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
+                        <TableView fx:id="Highscoretable" fixedCellSize="100.0" prefHeight="290.0" prefWidth="482.0" styleClass="table-transparent" stylesheets="@../battleshipfx.css" BorderPane.alignment="CENTER">
                             <columns>
-                                <TableColumn fx:id="colDate" editable="false" prefWidth="130.0" text="Date" />
+                                <TableColumn fx:id="colDate" editable="false" prefWidth="130.0" style="-fx-background-color: transparent;" text="Date" />
                                 <TableColumn fx:id="colWinner" editable="false" minWidth="20.0" prefWidth="150.0" text="Winner" />
                                 <TableColumn fx:id="colGameName" editable="false" minWidth="20.0" prefWidth="245.0" text="Battle" />
                                 <TableColumn fx:id="colClickAmount" editable="false" minWidth="20.0" prefWidth="100.0" text="Total Moves" />

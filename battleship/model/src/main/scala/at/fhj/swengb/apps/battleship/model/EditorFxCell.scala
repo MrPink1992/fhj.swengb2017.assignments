@@ -27,7 +27,7 @@ case class EditorFxCell(pos: BattlePos,
       case Some(v) =>
         colorizeAfterClick()
       case None =>
-        setFill(Color.DARKBLUE)
+        setFill(Color.CADETBLUE)
     }
   }
 
