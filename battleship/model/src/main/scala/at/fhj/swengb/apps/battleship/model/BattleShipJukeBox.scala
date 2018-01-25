@@ -31,7 +31,6 @@ case class BattleShipJukeBox(backgroundMusic: Media, shipHitMedia: Media, waterH
 
   def hitShip(): Unit = {
     if (!soundeffectMute) {
-      backgroundMusicPlayer.stop()
       initMediaPlayer(shipHitMedia).play()
       playBackgroundMusic()
     }
@@ -51,7 +50,6 @@ case class BattleShipJukeBox(backgroundMusic: Media, shipHitMedia: Media, waterH
 
   def hitWater(): Unit = {
     if (!soundeffectMute) {
-      backgroundMusicPlayer.stop()
       initMediaPlayer(waterHitMedia).play()
       playBackgroundMusic()
     }
