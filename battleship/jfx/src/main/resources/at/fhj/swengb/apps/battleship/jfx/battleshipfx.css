@@ -96,3 +96,6 @@
 
     -fx-background-color: transparent;
 }
+.table-bg{
+    -fx-background-image:url(pics/highscore_screen.png) ;
+}
